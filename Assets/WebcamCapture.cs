@@ -17,14 +17,22 @@ public class WebcamCapture : MonoBehaviour
             _webCamTexture = new WebCamTexture();
         }
 
-        _webCamTexture.requestedHeight = 512;
-        _webCamTexture.requestedWidth = 512;
+        // Screen.height
+        // Screen.width
+        _webCamTexture.requestedHeight = 640;
+        _webCamTexture.requestedWidth = 480;
         _webCamTexture.Play();
+
     }
 
     // Send texture to the shader.
     private void Update()
     {
+        // float webcamAspectRatio = _webCamTexture.width / _webCamTexture.height;
+        // this wont work because requested height and width only have an effect when set while the camera is not running
+        // _webCamTexture.requestedHeight = _webCamTexture.height;
+        // _webCamTexture.requestedWidth = _webCamTexture.width;
+
         if (_material == null)
             return;
 
